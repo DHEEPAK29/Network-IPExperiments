@@ -33,5 +33,10 @@ h1 iperf -t 10 -c 10.0.0.2
 After iperf finishes, run:
 h1 ping -c 3 h2
 
+![image](https://github.com/user-attachments/assets/2ba1d0f1-5e72-48b9-8b7c-650ca25714f2)
+
+MAC Address: 02:dc:28:20:de:eb, IP Address: 10.0.0.1
+![image](https://github.com/user-attachments/assets/2debca4e-26af-4909-b71e-fdb15c6b5f3a)
+
  
 
