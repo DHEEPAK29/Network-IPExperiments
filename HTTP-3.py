@@ -19,4 +19,4 @@ async def main():
     )
     await asyncio.Future() # Keep server running
 
-# asyncio.run(main())
+asyncio.run(main())
