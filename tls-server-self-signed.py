@@ -1,7 +1,6 @@
 import socket
 import ssl
-
-# Load server certificate and private key
+ 
 context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
 context.load_cert_chain(certfile="server.crt", keyfile="server.key")
 
@@ -13,8 +12,7 @@ server_sock.listen(5)
 print(f"Mini TLS Server listening on {bind_addr}...")
 
 while True:
-    client_sock, addr = server_sock.accept()
-    # Wrap incoming connection with TLS
+    client_sock, addr = server_sock.accept() 
     secure_conn = context.wrap_socket(client_sock, server_side=True)
     try:
         data = secure_conn.recv(1024)
