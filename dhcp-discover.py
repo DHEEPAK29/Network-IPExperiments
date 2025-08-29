@@ -1,10 +1,9 @@
 from scapy.all import *
 
 def handle_dhcp(pkt):
-    if DHCP in pkt and pkt[DHCP].options[0][1] == 1: # 1 = Discover
+    if DHCP in pkt and pkt[DHCP].options[0][1] == 1:  
         print(f"Discover from {pkt[Ether].src}")
-        
-        # Build Offer Packet
+         
         offer_pkt = (
             Ether(src="00:11:22:33:44:55", dst="ff:ff:ff:ff:ff:ff") /
             IP(src="192.168.1.1", dst="255.255.255.255") /
@@ -17,6 +16,5 @@ def handle_dhcp(pkt):
                           "end"])
         )
         sendp(offer_pkt, iface="eth0")
-
-# Start listening
+ 
 sniff(filter="udp and port 67", prn=handle_dhcp, iface="eth0")
