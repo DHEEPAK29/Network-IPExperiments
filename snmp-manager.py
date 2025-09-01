@@ -23,3 +23,5 @@ async def snmp_get(target_ip, community="public"):
             print(f"Result: {' = '.join([x.prettyPrint() for x in var_bind])}")
 
 # asyncio.run(snmp_get("127.0.0.1"))
+
+asyncio.run(snmp_get("127.0.0.1"))
