@@ -12,5 +12,5 @@ class MyMiniAgent(pyagentx3.Agent):
         self.register('1.3.6.1.4.1.8072.9999', CustomDataUpdater)
 
 # To run, ensure your system snmpd is configured as an AgentX master
-# a = MyMiniAgent()
-# a.start()
+a = MyMiniAgent()
+a.start()
