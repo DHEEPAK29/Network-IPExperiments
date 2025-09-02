@@ -24,4 +24,4 @@ async def run_ua_server():
             new_speed = (await myspeed.get_value()) + 0.1
             await myspeed.write_value(new_speed)
 
-# asyncio.run(run_ua_server())
+asyncio.run(run_ua_server())
