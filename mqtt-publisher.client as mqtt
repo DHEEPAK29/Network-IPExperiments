@@ -1,0 +1,25 @@
+import paho.mqtt.client as mqtt
+import time
+import random
+
+# 1. Configuration
+BROKER = "test.mosquitto.org" # Public sandbox broker for 2026 testing
+PORT = 1883
+TOPIC = "home/livingroom/temp"
+
+client = mqtt.Client(callback_api_version=mqtt.CallbackAPIVersion.VERSION2)
+
+# 2. Connect and Loop
+client.connect(BROKER, PORT, 60)
+client.loop_start()
+
+try:
+    while True:
+        temp = random.uniform(20.0, 25.0)
+        # Publish the message with QoS 1 (At least once delivery)
+        client.publish(TOPIC, payload=f"{temp:.2f}", qos=1)
+        print(f"Sent: {temp:.2f} to {TOPIC}")
+        time.sleep(5)
+except KeyboardInterrupt:
+    client.loop_stop()
+    client.disconnect()
