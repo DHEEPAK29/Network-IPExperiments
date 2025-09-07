@@ -13,4 +13,4 @@ def run_remote_command(host, user, pwd, cmd):
         client.close()
 
 # Example usage
-# run_remote_command('192.168.1.10', 'admin', 'password', 'ls -la')
+run_remote_command('192.168.1.10', 'admin', 'password', 'ls -la')
