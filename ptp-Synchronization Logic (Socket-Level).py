@@ -14,8 +14,7 @@ def calculate_ptp_sync(t1, t2, t3, t4):
     mean_path_delay = ((t2 - t1) + (t4 - t3)) / 2
     clock_offset = ((t2 - t1) - (t4 - t3)) / 2
     return mean_path_delay, clock_offset
-
-# Example usage with nanosecond precision (Python 3.7+)
+ 
 t1 = 1700000000000000000  # Sync sent from Master
 t2 = 1700000000010000000  # Sync received by Slave
 t3 = 1700000000020000000  # Delay_Req sent by Slave
