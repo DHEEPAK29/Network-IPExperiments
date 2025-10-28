@@ -2,10 +2,7 @@ from pyroute2 import IPRoute
 
 # Initialize IPRoute to interact with the kernel Netlink stack
 with IPRoute() as ipr:
-    # 1. Define VXLAN parameters
-    # VNI (VXLAN Network Identifier): 10
-    # Destination port: 4789 (IANA standard)
-    # Remote endpoint: 192.168.1.50 (The other VTEP)
+    # 1. Define VXLAN parameters VNI (VXLAN Network Identifier): 10 Destination port: 4789 (IANA standard) Remote endpoint: 192.168.1.50 (The other VTEP)
     
     try:
         ipr.link("add",
@@ -16,8 +13,7 @@ with IPRoute() as ipr:
                  vxlan_port=4789,
                  vxlan_ttl=16)
         
-        # 2. Assign an IP address to the virtual interface
-        # Find the index of the newly created interface
+        # 2. Assign an IP address to the virtual interface 
         idx = ipr.link_lookup(ifname="vxlan10")[0]
         
         ipr.addr("add", index=idx, address="10.0.0.1", mask=24)
