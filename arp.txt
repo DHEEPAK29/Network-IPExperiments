@@ -1,0 +1,9 @@
+# Enter interface configuration mode for your uplink/backbone port
+interface GigabitEthernet1/0/1
+  description UPLINK_TO_CORE_ROUTER
+  
+  # Enable trust for DHCP Snooping (Prerequisite)
+  ip dhcp snooping trust
+  
+  # Enable trust for ARP Inspection
+  ip arp inspection trust
