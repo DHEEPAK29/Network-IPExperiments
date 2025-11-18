@@ -7,3 +7,4 @@ interface GigabitEthernet1/0/1
   
   # Enable trust for ARP Inspection
   ip arp inspection trust
+
